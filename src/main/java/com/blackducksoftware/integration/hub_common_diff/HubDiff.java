@@ -42,6 +42,9 @@ public class HubDiff {
 		
 		HubDiff hubDiff = new HubDiff(config);
 		hubDiff.compare();
+		
+		// Quick test
+		// hubDiff.compare("3.4.2", "3.5.0-test", readJSON("3.5.0-test"));
 	}
 	
 	private RestConnection restConnection;
