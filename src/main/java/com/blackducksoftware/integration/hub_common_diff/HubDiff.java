@@ -3,6 +3,7 @@ package com.blackducksoftware.integration.hub_common_diff;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 
 import org.apache.commons.cli.CommandLine;
@@ -12,6 +13,8 @@ import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.io.FileUtils;
 import org.json.JSONException;
 import org.skyscreamer.jsonassert.FieldComparisonFailure;
@@ -39,6 +42,15 @@ public class HubDiff {
 		Option optUrl2 = new Option("h2", "hub-url-2", true, "the base url to the hub. Example: http://int-auto.dc1.lan:9000");
 		Option optUsername2 = new Option("u2", "username-2", true, "the username for your hub instance");
 		Option optPassword2 = new Option("p2", "password-2", true, "the password for your hub instance and username");
+		Option optOutputFile = new Option("o", "output", true, "the file path to your output file");
+		
+		optUrl1.setRequired(true);
+		optUsername1.setRequired(true);
+		optPassword1.setRequired(true);
+		optUsername2.setRequired(true);
+		optUrl1.setRequired(true);
+		optPassword2.setRequired(true);
+		optOutputFile.setRequired(false);
 		
 		// Add options to collection
 		options.addOption(optUrl1);
@@ -47,6 +59,7 @@ public class HubDiff {
 		options.addOption(optUrl2);
 		options.addOption(optUsername2);
 		options.addOption(optPassword2);
+		options.addOption(optOutputFile);
 		
 		// Parse the arguments array for the options
 		CommandLineParser cliParser = new DefaultParser();
@@ -68,6 +81,7 @@ public class HubDiff {
 		String url2 = optionParser.getOptionValue("hub-url-2");
 		String username2 = optionParser.getOptionValue("username-2");
 		String password2 = optionParser.getOptionValue("password-2");
+		String outputFilePath = optionParser.getOptionValue("output");
 		
 		HubServerConfigBuilder configBuilder = new HubServerConfigBuilder();
 		configBuilder.setHubUrl(url1);
@@ -83,6 +97,11 @@ public class HubDiff {
 		
 		HubDiff hubDiff = new HubDiff(config1, config2);
 		hubDiff.printDiff(System.out);
+		
+		if (outputFilePath != null) {
+			File outputFile = new File(outputFilePath);
+			hubDiff.writeDiffAsCSV(outputFile);
+		}
 	}
 	
 	private SwaggerDoc swaggerDoc1;
@@ -176,32 +195,33 @@ public class HubDiff {
 		}
 	}
 	
-	public void writeDiffAsCSV(File file) {
-		String output = getDiffAsCSV();
-		try {
-			FileUtils.write(file, output, StandardCharsets.UTF_8);
-		} catch (IOException e) {
-			e.printStackTrace();
+	public String writeDiffAsCSV(File file) throws IOException {
+		if (!file.exists()) {
+			file.createNewFile();
 		}
-	}
-	
-	public String getDiffAsCSV() {
-		String output = "Operation,Expected,Actual,Field\n";
+		
+		CSVPrinter printer = new CSVPrinter(new PrintStream(file), CSVFormat.DEFAULT);
+		
+		printer.printRecord("Operation", "Expected", "Actual", "Field");
+		printer.println();
+		
 		// Log all additions to the API
 		for (FieldComparisonFailure added : results.getFieldUnexpected()) {
-			output += ("ADDED," + added.getExpected() + "," + added.getActual() + "," + added.getField());
-			output += ("\n");
+			printer.printRecord("ADDED", added.getExpected(), added.getActual(), added.getField());
+			printer.println();
 		}
 		// Log all changes made to the API
 		for (FieldComparisonFailure changed : results.getFieldFailures()) {
-			output += ("CHANGED," + changed.getExpected() + "," + changed.getActual() + "," + changed.getField());
-			output += ("\n");
+			printer.printRecord("CHANGED", changed.getExpected(), changed.getActual(), changed.getField());
+			printer.println();
 		}
 		// Log all deletions made to the API
 		for (FieldComparisonFailure removed : results.getFieldMissing()) {
-			output += ("REMOVED," + removed.getExpected() + "," + removed.getActual() + "," + removed.getField());
-			output += ("\n");
+			printer.printRecord("REMOVED", removed.getExpected(), removed.getActual(), removed.getField());
+			printer.println();
 		}
-		return output;
+		printer.close();
+		
+		return FileUtils.readFileToString(file, StandardCharsets.UTF_8);
 	}
 }

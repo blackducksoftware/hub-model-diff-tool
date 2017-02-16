@@ -83,6 +83,7 @@ public class HubDiffTest {
 		HubDiff hubDiff = new HubDiff(swaggerDoc1, swaggerDoc2);
 		
 		String expected = FileUtils.readFileToString(new File(resources + "expected.csv"), StandardCharsets.UTF_8);
-		assertEquals(expected, hubDiff.getDiffAsCSV());
+		File actual = new File(resources + "actual.csv");
+		assertEquals(expected, hubDiff.writeDiffAsCSV(actual));
 	}
 }
