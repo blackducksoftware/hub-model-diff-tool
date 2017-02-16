@@ -82,7 +82,7 @@ public class HubDiff {
 		HubServerConfig config2 = configBuilder2.build();
 		
 		HubDiff hubDiff = new HubDiff(config1, config2);
-		hubDiff.getDiff();
+		hubDiff.printDiff(System.out);
 	}
 	
 	private SwaggerDoc swaggerDoc1;
@@ -177,7 +177,16 @@ public class HubDiff {
 	}
 	
 	public void writeDiffAsCSV(File file) {
-		String output = "Operation,Expected,Actual,Field";
+		String output = getDiffAsCSV();
+		try {
+			FileUtils.write(file, output, StandardCharsets.UTF_8);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public String getDiffAsCSV() {
+		String output = "Operation,Expected,Actual,Field\n";
 		// Log all additions to the API
 		for (FieldComparisonFailure added : results.getFieldUnexpected()) {
 			output += ("ADDED," + added.getExpected() + "," + added.getActual() + "," + added.getField());
@@ -193,11 +202,6 @@ public class HubDiff {
 			output += ("REMOVED," + removed.getExpected() + "," + removed.getActual() + "," + removed.getField());
 			output += ("\n");
 		}
-		
-		try {
-			FileUtils.write(file, output, StandardCharsets.UTF_8);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		return output;
 	}
 }

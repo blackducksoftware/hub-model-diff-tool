@@ -1,0 +1,16 @@
+Operation,Expected,Actual,Field
+ADDED,null,usages,definitions.VersionBomComponentView.properties
+ADDED,null,CommentUserData,definitions
+ADDED,null,OriginView,definitions
+ADDED,null,Page«OriginView»,definitions
+ADDED,null,Page«UserCommentView»,definitions
+ADDED,null,UserComment,definitions
+ADDED,null,UserCommentView,definitions
+ADDED,null,/api/components/{componentId}/versions/{versionId}/origin,paths
+ADDED,null,/api/components/{componentId}/versions/{versionId}/origin/{originId},paths
+ADDED,null,/api/projects/{projectId}/versions/{versionId}/components/{componentId}/component-versions/{componentVersionId}/comments,paths
+ADDED,null,/api/projects/{projectId}/versions/{versionId}/components/{componentId}/component-versions/{componentVersionId}/comments/{commentId},paths
+CHANGED,int-hub01.dc1.lan:8080,int-auto01.dc1.lan:9000,host
+CHANGED,Combination of : type, url,Combination of : type, name, url,paths./api/codelocations.get.parameters[4].description
+REMOVED,CodeLocationView,null,definitions
+REMOVED,content,null,definitions.NotificationView.properties
