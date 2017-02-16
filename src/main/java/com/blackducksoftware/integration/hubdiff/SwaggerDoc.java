@@ -1,5 +1,5 @@
 /**
- * hub-common-diff
+ * hub-model-diff-tool
  *
  * Copyright (C) 2017 Black Duck Software, Inc.
  * http://www.blackducksoftware.com/
@@ -21,7 +21,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.blackducksoftware.integration.hub_common_diff;
+package com.blackducksoftware.integration.hubdiff;
 
 import org.json.JSONException;
 import org.skyscreamer.jsonassert.JSONCompare;

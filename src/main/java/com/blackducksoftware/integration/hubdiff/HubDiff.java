@@ -1,5 +1,5 @@
 /**
- * hub-common-diff
+ * hub-model-diff-tool
  *
  * Copyright (C) 2017 Black Duck Software, Inc.
  * http://www.blackducksoftware.com/
@@ -21,7 +21,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.blackducksoftware.integration.hub_common_diff;
+package com.blackducksoftware.integration.hubdiff;
 
 import java.io.File;
 import java.io.IOException;
@@ -131,7 +131,7 @@ public class HubDiff {
 	private SwaggerDoc swaggerDoc2;
 	private JSONCompareResult results;
 	
-	public HubDiff(HubServerConfig config1, HubServerConfig config2) throws IllegalArgumentException, EncryptionException, HubIntegrationException, JSONException {
+	public HubDiff(HubServerConfig config1, HubServerConfig config2) throws IllegalArgumentException, EncryptionException, JSONException, HubIntegrationException {
 		RestConnection connection1 = new CredentialsRestConnection(config1);
 		RestConnection connection2 = new CredentialsRestConnection(config2);
 		connection1.connect();
