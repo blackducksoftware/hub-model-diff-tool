@@ -1,7 +1,29 @@
+/**
+ * hub-common-diff
+ *
+ * Copyright (C) 2017 Black Duck Software, Inc.
+ * http://www.blackducksoftware.com/
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements. See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership. The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
 package com.blackducksoftware.integration.hub_common_diff;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,51 +31,21 @@ import java.nio.charset.StandardCharsets;
 
 import org.apache.commons.io.FileUtils;
 import org.json.JSONException;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.blackducksoftware.integration.exception.EncryptionException;
-import com.blackducksoftware.integration.hub.builder.HubServerConfigBuilder;
 import com.blackducksoftware.integration.hub.exception.HubIntegrationException;
-import com.blackducksoftware.integration.hub.global.HubServerConfig;
 
 public class HubDiffTest {
-	private final String resources = "src/main/resources/tests/";
-	private HubServerConfig oldHub;
-	private HubServerConfig newHub;
+	private final String resources = "src/test/resources/";
 	private File file1;
 	private File file2;
 	
 	@Before
 	public void setup() {
-		HubServerConfigBuilder oldHubConfig = new HubServerConfigBuilder();
-		oldHubConfig.setHubUrl("http://int-hub01.dc1.lan:8080");
-		oldHubConfig.setUsername("sysadmin");
-		oldHubConfig.setPassword("blackduck");
-		oldHub = oldHubConfig.build();
-		
-		HubServerConfigBuilder newHubConfig = new HubServerConfigBuilder();
-		newHubConfig.setHubUrl("http://int-auto01.dc1.lan:9000");
-		newHubConfig.setUsername("sysadmin");
-		newHubConfig.setPassword("blackduck");
-		newHub = newHubConfig.build();
-		
 		file1 = new File(resources + "api-docs-3.4.2-test.json");
 		file2 = new File(resources + "api-docs-3.5.0-test.json");
-	}
-	
-	@Test
-	public void getDiffFromHubTest() {
-		HubDiff hubDiff = null;
-		try {
-			hubDiff = new HubDiff(oldHub, newHub);
-		} catch (IllegalArgumentException | EncryptionException | HubIntegrationException | JSONException e) {
-			e.printStackTrace();
-			Assert.fail("Failed to start test");
-		}
-		System.out.println(hubDiff.getDiff());
-		assertTrue(hubDiff.getDiff() != "" || hubDiff.getDiff() != null);
 	}
 	
 	@Test
