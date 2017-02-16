@@ -89,9 +89,9 @@ public class HubDiff {
 	private SwaggerDoc swaggerDoc2;
 	private JSONCompareResult results;
 	
-	public HubDiff(HubServerConfig config1, HubServerConfig config2) throws IllegalArgumentException, EncryptionException, HubIntegrationException, IOException, JSONException {
+	public HubDiff(HubServerConfig config1, HubServerConfig config2) throws IllegalArgumentException, EncryptionException, HubIntegrationException, JSONException {
 		RestConnection connection1 = new CredentialsRestConnection(config1);
-		RestConnection connection2 = new CredentialsRestConnection(config1);
+		RestConnection connection2 = new CredentialsRestConnection(config2);
 		connection1.connect();
 		connection2.connect();
 		
@@ -100,8 +100,20 @@ public class HubDiff {
 		swaggerDoc1 = new SwaggerDoc(fetch(connection1), serverVersion1);
 		swaggerDoc2 = new SwaggerDoc(fetch(connection2), serverVersion2);
 		
-		saveFiles(swaggerDoc1);
-		saveFiles(swaggerDoc2);
+		try {
+			saveFiles(swaggerDoc1);
+			saveFiles(swaggerDoc2);
+		} catch (HubIntegrationException | IOException e) {
+			System.out.println("Failed to save files");
+			e.printStackTrace();
+		}
+		
+		results = swaggerDoc1.getDifference(swaggerDoc2);
+	}
+	
+	public HubDiff(SwaggerDoc swaggerDoc1, SwaggerDoc swaggerDoc2) throws JSONException {
+		this.swaggerDoc1 = swaggerDoc1;
+		this.swaggerDoc2 = swaggerDoc2;
 		
 		results = swaggerDoc1.getDifference(swaggerDoc2);
 	}
