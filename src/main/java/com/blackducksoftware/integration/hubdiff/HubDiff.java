@@ -27,6 +27,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 import org.apache.commons.cli.CommandLine;
@@ -55,7 +57,6 @@ import com.blackducksoftware.integration.hub.rest.RestConnection;
 
 public class HubDiff {
 	private static final Logger log = LoggerFactory.getLogger("HubDiff");
-	private static final String resources = "src/main/resources/";
 	
 	public static void main(String[] args) throws IOException, IllegalArgumentException, EncryptionException, HubIntegrationException, JSONException {
 		Options options = new Options();
@@ -145,7 +146,7 @@ public class HubDiff {
 		try {
 			saveFiles(swaggerDoc1);
 			saveFiles(swaggerDoc2);
-		} catch (HubIntegrationException | IOException e) {
+		} catch (HubIntegrationException | IOException | URISyntaxException e) {
 			System.out.println("Failed to save files");
 			e.printStackTrace();
 		}
@@ -159,8 +160,10 @@ public class HubDiff {
 		results = swaggerDoc1.getDifference(swaggerDoc2);
 	}
 	
-	public void saveFiles(SwaggerDoc swaggerDoc) throws HubIntegrationException, IOException {
-		File swaggerFile = new File(resources + "api-docs-" + swaggerDoc.getVersion() + ".json");
+	public void saveFiles(SwaggerDoc swaggerDoc) throws HubIntegrationException, IOException, URISyntaxException {
+		URL basePath = this.getClass().getProtectionDomain().getCodeSource().getLocation();
+		
+		File swaggerFile = new File(basePath.toURI().resolve("api-docs-" + swaggerDoc.getVersion() + ".json"));
 		if (!swaggerFile.exists()) {
 			FileUtils.write(swaggerFile, swaggerDoc.getSwaggerDoc(), StandardCharsets.UTF_8);
 			log.info("No doc for version [{}]. Creating one now.", swaggerDoc.getVersion());
