@@ -222,28 +222,25 @@ public class HubDiff {
 			file.createNewFile();
 		}
 		
-		CSVPrinter printer = new CSVPrinter(new PrintStream(file), CSVFormat.DEFAULT);
+		CSVPrinter printer = new CSVPrinter(new PrintStream(file), CSVFormat.EXCEL);
 		
+		printer.printRecord("HubVersions", swaggerDoc1.getVersion(), " -> ", swaggerDoc2.getVersion());
 		printer.printRecord("Operation", "Expected", "Actual", "Field");
-		printer.println();
 		
 		// Log all additions to the API
 		for (FieldComparisonFailure added : results.getFieldUnexpected()) {
 			printer.printRecord("ADDED", added.getExpected(), added.getActual(), added.getField());
-			printer.println();
 		}
 		// Log all changes made to the API
 		for (FieldComparisonFailure changed : results.getFieldFailures()) {
 			printer.printRecord("CHANGED", changed.getExpected(), changed.getActual(), changed.getField());
-			printer.println();
 		}
 		// Log all deletions made to the API
 		for (FieldComparisonFailure removed : results.getFieldMissing()) {
 			printer.printRecord("REMOVED", removed.getExpected(), removed.getActual(), removed.getField());
-			printer.println();
 		}
-		printer.close();
 		
+		printer.close();
 		return FileUtils.readFileToString(file, StandardCharsets.UTF_8);
 	}
 }

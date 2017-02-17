@@ -70,10 +70,11 @@ public class HubDiffTest {
 		HubDiff hubDiff = new HubDiff(doc1, doc2);
 		File expectedFile = new File(resources + "expected.csv");
 		File actualFile = new File(resources + "actual.csv");
+		
 		hubDiff.writeDiffAsCSV(actualFile);
 		
-		CSVParser expectedParser = new CSVParser(new FileReader(expectedFile), CSVFormat.DEFAULT);
-		CSVParser actualParser = new CSVParser(new FileReader(actualFile), CSVFormat.DEFAULT);
+		CSVParser expectedParser = new CSVParser(new FileReader(expectedFile), CSVFormat.EXCEL);
+		CSVParser actualParser = new CSVParser(new FileReader(actualFile), CSVFormat.EXCEL);
 		List<CSVRecord> expectedRecords = expectedParser.getRecords();
 		List<CSVRecord> actualRecords = actualParser.getRecords();
 		
