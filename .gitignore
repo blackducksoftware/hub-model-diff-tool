@@ -4,6 +4,5 @@ target/
 .classpath
 .project
 actual.csv
-results.txt
 *.bak
 dependency-reduced-pom.xml

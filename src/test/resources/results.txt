@@ -1,0 +1,15 @@
+[ADDED] usages TO definitions.VersionBomComponentView.properties
+[ADDED] CommentUserData TO definitions
+[ADDED] OriginView TO definitions
+[ADDED] Page«OriginView» TO definitions
+[ADDED] Page«UserCommentView» TO definitions
+[ADDED] UserComment TO definitions
+[ADDED] UserCommentView TO definitions
+[ADDED] /api/components/{componentId}/versions/{versionId}/origin TO paths
+[ADDED] /api/components/{componentId}/versions/{versionId}/origin/{originId} TO paths
+[ADDED] /api/projects/{projectId}/versions/{versionId}/components/{componentId}/component-versions/{componentVersionId}/comments TO paths
+[ADDED] /api/projects/{projectId}/versions/{versionId}/components/{componentId}/component-versions/{componentVersionId}/comments/{commentId} TO paths
+[CHANGED] host FROM int-hub01.dc1.lan:8080 TO int-auto01.dc1.lan:9000
+[CHANGED] paths./api/codelocations.get.parameters[4].description FROM Combination of : type, url TO Combination of : type, name, url
+[REMOVED] CodeLocationView FROM definitions
+[REMOVED] content FROM definitions.NotificationView.properties
