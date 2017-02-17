@@ -26,56 +26,66 @@ package com.blackducksoftware.integration.hubdiff;
 import static org.junit.Assert.assertEquals;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.io.FileUtils;
 import org.json.JSONException;
+import org.junit.Before;
+import org.junit.Test;
 
 import com.blackducksoftware.integration.exception.EncryptionException;
 import com.blackducksoftware.integration.hub.exception.HubIntegrationException;
-import com.blackducksoftware.integration.hubdiff.HubDiff;
-import com.blackducksoftware.integration.hubdiff.SwaggerDoc;
 
 public class HubDiffTest {
 	private final String resources = "src/test/resources/";
 	private File file1;
 	private File file2;
+	private SwaggerDoc doc1;
+	private SwaggerDoc doc2;
 	
-	// @Before
-	public void setup() {
+	@Before
+	public void setup() throws IOException {
 		file1 = new File(resources + "api-docs-3.4.2-test.json");
 		file2 = new File(resources + "api-docs-3.5.0-test.json");
+		doc1 = new SwaggerDoc(FileUtils.readFileToString(file1, StandardCharsets.UTF_8), "3.4.2");
+		doc2 = new SwaggerDoc(FileUtils.readFileToString(file2, StandardCharsets.UTF_8), "3.5.0");
 	}
 	
-	// @Test
-	public void getDiffFile() throws IOException, JSONException {
-		
+	@Test
+	public void getDiffFile() throws JSONException, IOException {
 		File results = new File(resources + "results.txt");
-		
-		String doc1 = FileUtils.readFileToString(file1, StandardCharsets.UTF_8);
-		String doc2 = FileUtils.readFileToString(file2, StandardCharsets.UTF_8);
 		String expected = FileUtils.readFileToString(results, StandardCharsets.UTF_8);
-		
-		SwaggerDoc swaggerDoc1 = new SwaggerDoc(doc1, "3.4.2");
-		SwaggerDoc swaggerDoc2 = new SwaggerDoc(doc2, "3.5.0");
-		HubDiff hubDiff = new HubDiff(swaggerDoc1, swaggerDoc2);
-		
+		HubDiff hubDiff = new HubDiff(doc1, doc2);
 		assertEquals(expected, hubDiff.getDiff());
 	}
 	
-	// @Test
+	@Test
 	public void csvTest() throws IOException, IllegalArgumentException, EncryptionException, HubIntegrationException, JSONException {
-		String doc1 = FileUtils.readFileToString(file1, StandardCharsets.UTF_8);
-		String doc2 = FileUtils.readFileToString(file2, StandardCharsets.UTF_8);
+		HubDiff hubDiff = new HubDiff(doc1, doc2);
+		File expectedFile = new File(resources + "expected.csv");
+		File actualFile = new File(resources + "actual.csv");
+		hubDiff.writeDiffAsCSV(actualFile);
 		
-		SwaggerDoc swaggerDoc1 = new SwaggerDoc(doc1, "3.4.2");
-		SwaggerDoc swaggerDoc2 = new SwaggerDoc(doc2, "3.5.0");
+		CSVParser expectedParser = new CSVParser(new FileReader(expectedFile), CSVFormat.DEFAULT);
+		CSVParser actualParser = new CSVParser(new FileReader(actualFile), CSVFormat.DEFAULT);
+		List<CSVRecord> expectedRecords = expectedParser.getRecords();
+		List<CSVRecord> actualRecords = actualParser.getRecords();
 		
-		HubDiff hubDiff = new HubDiff(swaggerDoc1, swaggerDoc2);
+		assertEquals(expectedRecords.size(), actualRecords.size());
 		
-		String expected = FileUtils.readFileToString(new File(resources + "expected.csv"), StandardCharsets.UTF_8);
-		File actual = new File(resources + "actual.csv");
-		assertEquals(expected, hubDiff.writeDiffAsCSV(actual));
+		for (int i = 0; i < expectedRecords.size(); i++) {
+			String expected = expectedRecords.get(i).toString();
+			String actual = actualRecords.get(i).toString();
+			assertEquals(expected, actual);
+		}
+		
+		expectedParser.close();
+		actualParser.close();
 	}
 }
