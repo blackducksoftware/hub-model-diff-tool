@@ -156,7 +156,6 @@ public class HubDiff {
 	public HubDiff(SwaggerDoc swaggerDoc1, SwaggerDoc swaggerDoc2) throws JSONException {
 		this.swaggerDoc1 = swaggerDoc1;
 		this.swaggerDoc2 = swaggerDoc2;
-		
 		results = swaggerDoc1.getDifference(swaggerDoc2);
 	}
 	
