@@ -229,7 +229,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/PageView«CodeLocationView»"
+              "$ref": "#/definitions/PageView<CodeLocationView>"
             }
           }
         }
@@ -396,7 +396,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/PageView«ScanSummaryView»"
+              "$ref": "#/definitions/PageView<ScanSummaryView>"
             }
           }
         }
@@ -449,7 +449,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/PageView«ComponentSearchResultView»"
+              "$ref": "#/definitions/PageView<ComponentSearchResultView>"
             }
           }
         }
@@ -546,7 +546,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Page«ComponentVersionView»"
+              "$ref": "#/definitions/Page<ComponentVersionView>"
             }
           }
         }
@@ -652,7 +652,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Page«OriginView»"
+              "$ref": "#/definitions/Page<OriginView>"
             }
           }
         }
@@ -773,7 +773,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/PageView«VulnerabilityView»"
+              "$ref": "#/definitions/PageView<VulnerabilityView>"
             }
           }
         }
@@ -837,7 +837,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/PageView«VulnerabilityView»"
+              "$ref": "#/definitions/PageView<VulnerabilityView>"
             }
           }
         }
@@ -894,7 +894,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/PageView«VulnerabilityView»"
+              "$ref": "#/definitions/PageView<VulnerabilityView>"
             }
           }
         }
@@ -1084,7 +1084,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/PageView«NotificationView»"
+              "$ref": "#/definitions/PageView<NotificationView>"
             }
           }
         }
@@ -1175,7 +1175,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/PageView«PolicyRuleView»"
+              "$ref": "#/definitions/PageView<PolicyRuleView>"
             }
           }
         }
@@ -1264,7 +1264,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Page«ProjectView»"
+              "$ref": "#/definitions/Page<ProjectView>"
             }
           }
         }
@@ -1458,7 +1458,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Page«ProjectVersionView»"
+              "$ref": "#/definitions/Page<ProjectVersionView>"
             }
           }
         }
@@ -1677,7 +1677,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/PageView«CodeLocationView»"
+              "$ref": "#/definitions/PageView<CodeLocationView>"
             }
           }
         }
@@ -1735,7 +1735,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/PageView«VersionBomComponentView»"
+              "$ref": "#/definitions/PageView<VersionBomComponentView>"
             }
           }
         }
@@ -1806,7 +1806,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Page«UserCommentView»"
+              "$ref": "#/definitions/Page<UserCommentView>"
             }
           }
         }
@@ -2105,7 +2105,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/PageView«MatchedFileView»"
+              "$ref": "#/definitions/PageView<MatchedFileView>"
             }
           }
         }
@@ -2228,7 +2228,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/PageView«MatchedFileView»"
+              "$ref": "#/definitions/PageView<MatchedFileView>"
             }
           }
         }
@@ -2309,7 +2309,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/PageView«MatchedFileView»"
+              "$ref": "#/definitions/PageView<MatchedFileView>"
             }
           }
         }
@@ -2522,7 +2522,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/PageView«VulnerableComponentView»"
+              "$ref": "#/definitions/PageView<VulnerableComponentView>"
             }
           }
         }
@@ -2648,7 +2648,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Page«RoleView»"
+              "$ref": "#/definitions/Page<RoleView>"
             }
           }
         }
@@ -2731,7 +2731,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/PageView«UserView»"
+              "$ref": "#/definitions/PageView<UserView>"
             }
           }
         }
@@ -2780,7 +2780,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/PageView«UserView»"
+              "$ref": "#/definitions/PageView<UserView>"
             }
           }
         }
@@ -2901,7 +2901,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/PageView«UserGroupView»"
+              "$ref": "#/definitions/PageView<UserGroupView>"
             }
           }
         }
@@ -3007,7 +3007,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Page«UserView»"
+              "$ref": "#/definitions/Page<UserView>"
             }
           }
         }
@@ -3218,7 +3218,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Page«RoleAssignmentView»"
+              "$ref": "#/definitions/Page<RoleAssignmentView>"
             }
           }
         }
@@ -3304,7 +3304,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Page«NotificationSubscriptionView»"
+              "$ref": "#/definitions/Page<NotificationSubscriptionView>"
             }
           }
         }
@@ -3489,7 +3489,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/PageView«NotificationUserView»"
+              "$ref": "#/definitions/PageView<NotificationUserView>"
             }
           }
         }
@@ -3684,7 +3684,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Page«RoleAssignmentView»"
+              "$ref": "#/definitions/Page<RoleAssignmentView>"
             }
           }
         }
@@ -3859,7 +3859,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/PageView«UserGroupView»"
+              "$ref": "#/definitions/PageView<UserGroupView>"
             }
           }
         }
@@ -4032,7 +4032,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Page«ReportView»"
+              "$ref": "#/definitions/Page<ReportView>"
             }
           }
         }
@@ -4200,7 +4200,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Page«ReportView»"
+              "$ref": "#/definitions/Page<ReportView>"
             }
           }
         }
@@ -4393,7 +4393,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Page«ReportView»"
+              "$ref": "#/definitions/Page<ReportView>"
             }
           }
         }
@@ -4531,7 +4531,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Page«ReportView»"
+              "$ref": "#/definitions/Page<ReportView>"
             }
           }
         }
@@ -4607,7 +4607,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Page«ReportView»"
+              "$ref": "#/definitions/Page<ReportView>"
             }
           }
         }
@@ -4688,7 +4688,7 @@
         }
       }
     },
-    "PageView«CodeLocationView»": {
+    "PageView<CodeLocationView>": {
       "properties": {
         "appliedFilters": {
           "type": "array",
@@ -4708,7 +4708,7 @@
         }
       }
     },
-    "PageView«OAuthClientView»": {
+    "PageView<OAuthClientView>": {
       "properties": {
         "appliedFilters": {
           "type": "array",
@@ -4751,25 +4751,25 @@
       ],
       "properties": {
         "component": {
-          "$ref": "#/definitions/Optional«string»"
+          "$ref": "#/definitions/Optional<string>"
         },
         "componentName": {
           "type": "string"
         },
         "componentVersion": {
-          "$ref": "#/definitions/Optional«string»"
+          "$ref": "#/definitions/Optional<string>"
         },
         "componentVersionName": {
-          "$ref": "#/definitions/Optional«string»"
+          "$ref": "#/definitions/Optional<string>"
         },
         "componentVersionOriginId": {
-          "$ref": "#/definitions/Optional«string»"
+          "$ref": "#/definitions/Optional<string>"
         },
         "componentVersionOriginName": {
-          "$ref": "#/definitions/Optional«string»"
+          "$ref": "#/definitions/Optional<string>"
         },
         "license": {
-          "$ref": "#/definitions/Optional«ComplexLicenseView»"
+          "$ref": "#/definitions/Optional<ComplexLicenseView>"
         },
         "vulnerabilityWithRemediation": {
           "$ref": "#/definitions/VulnerabilityWithRemediationView"
@@ -4807,7 +4807,7 @@
         }
       }
     },
-    "PageView«UserView»": {
+    "PageView<UserView>": {
       "properties": {
         "appliedFilters": {
           "type": "array",
@@ -4840,7 +4840,7 @@
         }
       }
     },
-    "PageView«ComponentSearchResultView»": {
+    "PageView<ComponentSearchResultView>": {
       "properties": {
         "appliedFilters": {
           "type": "array",
@@ -4860,7 +4860,7 @@
         }
       }
     },
-    "PageView«NotificationView»": {
+    "PageView<NotificationView>": {
       "properties": {
         "appliedFilters": {
           "type": "array",
@@ -4880,7 +4880,7 @@
         }
       }
     },
-    "PageView«PolicyRuleView»": {
+    "PageView<PolicyRuleView>": {
       "properties": {
         "appliedFilters": {
           "type": "array",
@@ -4952,7 +4952,7 @@
         }
       }
     },
-    "Page«ExternalExtensionUserView»": {
+    "Page<ExternalExtensionUserView>": {
       "properties": {
         "items": {
           "type": "array",
@@ -5021,7 +5021,7 @@
         }
       }
     },
-    "PageView«VulnerableComponentView»": {
+    "PageView<VulnerableComponentView>": {
       "properties": {
         "appliedFilters": {
           "type": "array",
@@ -5041,7 +5041,7 @@
         }
       }
     },
-    "Optional«string»": {
+    "Optional<string>": {
       "properties": {
         "present": {
           "type": "boolean"
@@ -5060,7 +5060,7 @@
         }
       }
     },
-    "PageView«ExternalExtensionView»": {
+    "PageView<ExternalExtensionView>": {
       "properties": {
         "appliedFilters": {
           "type": "array",
@@ -5080,7 +5080,7 @@
         }
       }
     },
-    "PageView«MatchedFileView»": {
+    "PageView<MatchedFileView>": {
       "properties": {
         "appliedFilters": {
           "type": "array",
@@ -5228,7 +5228,7 @@
         }
       }
     },
-    "Page«ProjectVersionView»": {
+    "Page<ProjectVersionView>": {
       "properties": {
         "items": {
           "type": "array",
@@ -5580,7 +5580,7 @@
           ]
         },
         "license": {
-          "$ref": "#/definitions/Optional«string»"
+          "$ref": "#/definitions/Optional<string>"
         },
         "licenses": {
           "type": "array",
@@ -5614,7 +5614,7 @@
       ],
       "properties": {
         "license": {
-          "$ref": "#/definitions/Optional«ComplexLicenseView»"
+          "$ref": "#/definitions/Optional<ComplexLicenseView>"
         },
         "releasedOn": {
           "type": "string",
@@ -5633,13 +5633,13 @@
         }
       }
     },
-    "Map«string,RiskPriorityDistribution»": {
+    "Map<string,RiskPriorityDistribution>": {
       "type": "object",
       "additionalProperties": {
         "$ref": "#/definitions/RiskPriorityDistribution"
       }
     },
-    "PageView«VersionBomComponentView»": {
+    "PageView<VersionBomComponentView>": {
       "properties": {
         "appliedFilters": {
           "type": "array",
@@ -5659,7 +5659,7 @@
         }
       }
     },
-    "PageView«NotificationUserView»": {
+    "PageView<NotificationUserView>": {
       "properties": {
         "appliedFilters": {
           "type": "array",
@@ -5717,7 +5717,7 @@
         }
       }
     },
-    "PageView«UserGroupView»": {
+    "PageView<UserGroupView>": {
       "properties": {
         "appliedFilters": {
           "type": "array",
@@ -5737,7 +5737,7 @@
         }
       }
     },
-    "Page«NotificationSubscriptionView»": {
+    "Page<NotificationSubscriptionView>": {
       "properties": {
         "items": {
           "type": "array",
@@ -5758,7 +5758,7 @@
       "properties": {
         "license": {
           "description": "Licensing information specific to the origin",
-          "$ref": "#/definitions/Optional«ComplexLicenseView»"
+          "$ref": "#/definitions/Optional<ComplexLicenseView>"
         },
         "originId": {
           "type": "string",
@@ -5821,7 +5821,7 @@
           ]
         },
         "license": {
-          "$ref": "#/definitions/Optional«ComplexLicenseView»"
+          "$ref": "#/definitions/Optional<ComplexLicenseView>"
         },
         "nickname": {
           "type": "string"
@@ -5868,7 +5868,7 @@
         }
       }
     },
-    "Collection«string»": {},
+    "Collection<string>": {},
     "VulnerabilityUpdateReportRestRequest": {
       "properties": {
         "endDate": {
@@ -6116,7 +6116,7 @@
         }
       }
     },
-    "PageView«ExternalExtensionConfigValueView»": {
+    "PageView<ExternalExtensionConfigValueView>": {
       "properties": {
         "appliedFilters": {
           "type": "array",
@@ -6140,11 +6140,11 @@
       "properties": {
         "registeredRedirectUris": {
           "description": "The pre-defined redirect URI for this client to use during the \"authorization_code\" access grant. See OAuth spec, section 4.1.1",
-          "$ref": "#/definitions/Collection«string»"
+          "$ref": "#/definitions/Collection<string>"
         },
         "scopes": {
           "description": "The scope of this client. Empty if the client isn\u0027t scoped",
-          "$ref": "#/definitions/Collection«string»"
+          "$ref": "#/definitions/Collection<string>"
         }
       }
     },
@@ -6189,7 +6189,7 @@
         }
       }
     },
-    "Page«UserCommentView»": {
+    "Page<UserCommentView>": {
       "properties": {
         "items": {
           "type": "array",
@@ -6238,7 +6238,7 @@
         }
       }
     },
-    "Page«RoleView»": {
+    "Page<RoleView>": {
       "properties": {
         "items": {
           "type": "array",
@@ -6375,7 +6375,7 @@
         }
       }
     },
-    "Page«UserView»": {
+    "Page<UserView>": {
       "properties": {
         "items": {
           "type": "array",
@@ -6389,7 +6389,7 @@
         }
       }
     },
-    "PageView«ScanSummaryView»": {
+    "PageView<ScanSummaryView>": {
       "properties": {
         "appliedFilters": {
           "type": "array",
@@ -6439,7 +6439,7 @@
         }
       }
     },
-    "Page«ComponentVersionView»": {
+    "Page<ComponentVersionView>": {
       "properties": {
         "items": {
           "type": "array",
@@ -6579,7 +6579,7 @@
         "grantTypes": {
           "description": "The various authentication mechanisms the client is allowed to use with the application",
           "readOnly": true,
-          "$ref": "#/definitions/Collection«string»"
+          "$ref": "#/definitions/Collection<string>"
         },
         "refreshTokenValiditySeconds": {
           "type": "integer",
@@ -6589,12 +6589,12 @@
         },
         "registeredRedirectUris": {
           "description": "The pre-defined redirect URI for this client to use during the \"authorization_code\" access grant. See OAuth spec, section 4.1.1",
-          "$ref": "#/definitions/Collection«string»"
+          "$ref": "#/definitions/Collection<string>"
         },
         "scopes": {
           "description": "The scope of this client. Empty if the client isn\u0027t scoped",
           "readOnly": true,
-          "$ref": "#/definitions/Collection«string»"
+          "$ref": "#/definitions/Collection<string>"
         }
       }
     },
@@ -6618,7 +6618,7 @@
         }
       }
     },
-    "Page«ReportView»": {
+    "Page<ReportView>": {
       "properties": {
         "items": {
           "type": "array",
@@ -6632,7 +6632,7 @@
         }
       }
     },
-    "Page«OriginView»": {
+    "Page<OriginView>": {
       "properties": {
         "items": {
           "type": "array",
@@ -6699,7 +6699,7 @@
         }
       }
     },
-    "Page«ProjectView»": {
+    "Page<ProjectView>": {
       "properties": {
         "items": {
           "type": "array",
@@ -6713,7 +6713,7 @@
         }
       }
     },
-    "Page«RoleAssignmentView»": {
+    "Page<RoleAssignmentView>": {
       "properties": {
         "items": {
           "type": "array",
@@ -6734,7 +6734,7 @@
         }
       }
     },
-    "PageView«VulnerabilityView»": {
+    "PageView<VulnerabilityView>": {
       "properties": {
         "appliedFilters": {
           "type": "array",
@@ -6801,7 +6801,7 @@
         }
       }
     },
-    "Optional«ComplexLicenseView»": {
+    "Optional<ComplexLicenseView>": {
       "properties": {
         "present": {
           "type": "boolean"

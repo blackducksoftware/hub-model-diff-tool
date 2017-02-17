@@ -3,8 +3,8 @@ Operation,Expected,Actual,Field
 ADDED,,usages,definitions.VersionBomComponentView.properties
 ADDED,,CommentUserData,definitions
 ADDED,,OriginView,definitions
-ADDED,,Page«OriginView»,definitions
-ADDED,,Page«UserCommentView»,definitions
+ADDED,,Page<OriginView>,definitions
+ADDED,,Page<UserCommentView>,definitions
 ADDED,,UserComment,definitions
 ADDED,,UserCommentView,definitions
 ADDED,,/api/components/{componentId}/versions/{versionId}/origin,paths

@@ -175,7 +175,7 @@ public class HubDiff {
 		HubRequest docsRequest = new HubRequest(rest);
 		docsRequest.setUrl(url);
 		log.info("Making GET request to hub: {}", url);
-		return docsRequest.executeGetForResponseString();
+		return docsRequest.executeGetForResponseString().replaceAll("«", "<").replaceAll("»", ">");
 	}
 	
 	public String fetchHubVersion(RestConnection rest) throws HubIntegrationException {
